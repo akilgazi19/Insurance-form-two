@@ -1,0 +1,976 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>Insurance form</title>
+        <!-- Font -->
+        <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+        <!-- My CSS -->
+        <style>
+            h1,h2,h3,h4,h5,h6,a,span,input,label,textarea,button{
+            font-family: 'Poppins', sans-serif;
+        }
+        </style>
+    </head>
+    <body>
+
+        <form>
+            <div class="container mt-5 mb-5">
+                <!-- Section One -->
+                <div class="row">
+                <div class="col-12">
+                    <h3 class="mb-5 text-center">Commercial Insurance Online Quote</h3>
+                    <h5 class="mb-5 text-danger font-weight-bold">Insured General Information:</h5>
+                </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="corporationName">Corporation Name:</label>
+                            <input type="text" class="form-control" id="corporationName" placeholder="">
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="dba">DBA:</label>
+                            <input type="text" class="form-control" id="dba" placeholder="">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="executive">Executive/President:</label>
+                            <input type="text" class="form-control" id="executive" placeholder="">
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="phoneNumber">Phone #:</label>
+                            <input type="number" class="form-control" id="phoneNumber" placeholder="">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12 col-12">
+                        <div class="form-group">
+                            <label for="contactPerson">Contact Person:</label>
+                            <input type="text" class="form-control" id="contactPerson"  placeholder="">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="phoneNumberTwo">Phone #:</label>
+                            <input type="number" class="form-control" id="phoneNumberTwo"  placeholder="">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="contactEmail">Email:</label>
+                            <input type="email" class="form-control" id="contactEmail" aria-describedby="emailHelp" placeholder="" required>
+
+                            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="businessMain">Business Main #:</label>
+                            <input type="text" class="form-control" id="businessMain"  placeholder="">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="taxId">S.S/Tax ID:</label>
+                            <input type="text" class="form-control" id="taxId" aria-describedby="emailHelp" placeholder="">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12 col-12">
+                        <div class="form-group">
+                            <label for="businessAddress">Business Address:</label>
+                            <input type="text" class="form-control" id="businessAddress"  placeholder="">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4 col-4">
+                        <div class="form-group">
+                            <label for="city">City:</label>
+                            <input type="text" class="form-control" id="city" placeholder="">
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 col-4">
+                        <div class="form-group">
+                            <label for="st">St:</label>
+                            <input type="text" class="form-control" id="st" placeholder="" required>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 col-4">
+                        <div class="form-group">
+                            <label for="zipCode">Zip Code:</label>
+                            <input type="text" class="form-control" id="zipCode" placeholder="" required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12 col-12">
+                        <div class="form-group">
+                            <label for="mailingAddress">Mailing Address:</label>
+                            <input type="text" class="form-control" id="mailingAddress"  placeholder="">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4 col-4">
+                        <div class="form-group">
+                            <label for="cityTwo">City:</label>
+                            <input type="text" class="form-control" id="cityTwo" placeholder="">
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 col-4">
+                        <div class="form-group">
+                            <label for="stTwo">St:</label>
+                            <input type="text" class="form-control" id="stTwo" placeholder="" required>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 col-4">
+                        <div class="form-group">
+                            <label for="zipCodeTwo">Zip Code:</label>
+                            <input type="text" class="form-control" id="zipCodeTwo" placeholder="" required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6 col-12">
+                        <div class="form-group">
+                            <label for="ohFrom">Hours of Operation From:</label>
+                            <input type="text" class="form-control" id="ohFrom"  placeholder="Enter start time of operation" required>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-12">
+                        <div class="form-group">
+                            <label for="ohTo">To:</label>
+                            <input type="text" class="form-control" id="ohTo"  placeholder="Enter end time of operation" required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="yearOfExperience">Years Of Experience:</label>
+                            <input type="number" class="form-control" id="yearOfExperience" placeholder="">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="yearAtLocation">Years at this Location:</label>
+                            <input type="number" class="form-control" id="yearAtLocation" placeholder="">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12 col-12">
+                        <div class="form-group">
+                            <label for="descriptionOfBusiness">Description of Business:</label>
+                            <textarea class="form-control" id="note" rows="3" id="descriptionOfBusiness"></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-8 col-12">
+                        <div class="form-group">
+                            <label for="typeOfInsurance">Please select the type of insurance your business requires (You can choose multiple answers):</label>
+                        </div>
+                        <div class="form-check form-check-inline pb-4">
+                            <input class="form-check-input" type="checkbox" name="group1" value="General Liability">
+                            <label class="form-check-label" for="typeOfInsurance">General Liability</label>
+                        </div>
+                        <div class="form-check form-check-inline pb-4">
+                            <input class="form-check-input" type="checkbox" name="group1" value="BOP (Business Owners Policy)">
+                            <label class="form-check-label" for="typeOfInsurance">BOP (Business Owners Policy)</label>
+                        </div>
+                        <div class="form-check form-check-inline pb-4">
+                            <input class="form-check-input" type="checkbox" name="group1" value="Disability">
+                            <label class="form-check-label" for="typeOfInsurance">Disability</label>
+                        </div>
+                        <div class="form-check form-check-inline pb-4">
+                            <input class="form-check-input" type="checkbox" name="group1" value="Bonds">
+                            <label class="form-check-label" for="typeOfInsurance">Bonds</label>
+                        </div>
+                        <div class="form-check form-check-inline pb-4">
+                            <input class="form-check-input" type="checkbox" name="group1" value="Workers Compensation">
+                            <label class="form-check-label" for="typeOfInsurance">Workers Compensation</label>
+                        </div>
+                        <div class="form-check form-check-inline pb-4">
+                            <input class="form-check-input" type="checkbox" name="group1" value="Errors & Omissions">
+                            <label class="form-check-label" for="typeOfInsurance">Errors & Omissions</label>
+                        </div>
+                        <div class="form-check form-check-inline pb-4">
+                            <input class="form-check-input" type="checkbox" name="group1" value="Performance Payment Bonds & Other">
+                            <label class="form-check-label" for="typeOfInsurance">Performance Payment Bonds & Other</label>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 col-12">
+                        <div class="form-group">
+                            <label for="autoInsurance">Do you need commercial Auto insurance?</label>
+                        </div>
+                        <div class="form-check form-check-inline pb-4">
+                            <input class="form-check-input" type="radio" name="group2" value="Yes">
+                            <label class="form-check-label" for="autoInsurance">Yes</label>
+                        </div>
+                        <div class="form-check form-check-inline pb-4">
+                            <input class="form-check-input" type="radio" name="group2" value="No">
+                            <label class="form-check-label" for="autoInsurance">No</label>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- Section Two-->
+
+                <div class="row">
+                    <div class="col-12">
+                        <h5 class="my-5 text-danger font-weight-bold">Property Section:</h5>
+                    </div>
+
+                    <div class="col-md-4 col-4">
+                        <div class="form-group">
+                            <label for="building">Building $:</label>
+                            <input type="text" class="form-control" id="building" placeholder="">
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 col-4">
+                        <div class="form-group">
+                            <label for="content">Content $:</label>
+                            <input type="text" class="form-control" id="content" placeholder="">
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 col-4">
+                        <div class="form-group">
+                            <label for="businessInc">Business Inc $:</label>
+                            <input type="text" class="form-control" id="businessInc" placeholder="">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-3 col-6">
+                        <div class="form-group">
+                            <label for="constructionBrick">Construction Brick:</label>
+                            <input type="text" class="form-control" id="constructionBrick"  placeholder="">
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-6">
+                        <div class="form-group">
+                            <label for="frame">Frame:</label>
+                            <input type="text" class="form-control" id="frame"  placeholder="">
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-6">
+                        <div class="form-group">
+                            <label for="stories">Stories #:</label>
+                            <input type="text" class="form-control" id="stories" placeholder="">
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-6">
+                        <div class="form-group">
+                            <label for="yearBuilt">Year Built:</label>
+                            <input type="text" class="form-control" id="yearBuilt"  placeholder="">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6 col-6">
+                        <div class="form-group">
+                            <label for="numberOfUnits">Number of Units</label>
+                            <input type="number" class="form-control" id="numberOfUnits" placeholder="">
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-6">
+                        <div class="form-group">
+                            <label for="alarm">Alarm?</label>
+                        </div>
+                        <div class="form-check form-check-inline pb-4">
+                            <input class="form-check-input" type="radio" name="group3" value="Yes">
+                            <label class="form-check-label" for="alarm">Yes</label>
+                        </div>
+                        <div class="form-check form-check-inline pb-4">
+                            <input class="form-check-input" type="radio" name="group3" value="No">
+                            <label class="form-check-label" for="alarm">No</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-3 col-6">
+                        <div class="form-group">
+                            <label for="sprinkler">Sprinkler?</label>
+                        </div>
+                        <div class="form-check form-check-inline pb-4">
+                            <input class="form-check-input" type="radio" name="group4" value="Yes">
+                            <label class="form-check-label" for="sprinkler">Yes</label>
+                        </div>
+                        <div class="form-check form-check-inline pb-4">
+                            <input class="form-check-input" type="radio" name="group4" value="No">
+                            <label class="form-check-label" for="sprinkler">No</label>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-6">
+                        <div class="form-group">
+                            <label for="basement">Basement?</label>
+                        </div>
+                        <div class="form-check form-check-inline pb-4">
+                            <input class="form-check-input" type="radio" name="group5" value="Yes">
+                            <label class="form-check-label" for="basement">Yes</label>
+                        </div>
+                        <div class="form-check form-check-inline pb-4">
+                            <input class="form-check-input" type="radio" name="group5" value="No">
+                            <label class="form-check-label" for="basement">No</label>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-6">
+                        <div class="form-group">
+                            <label for="trapDoorInside">Trap Door Inside?</label>
+                        </div>
+                        <div class="form-check form-check-inline pb-4">
+                            <input class="form-check-input" type="radio" name="group6" value="Yes">
+                            <label class="form-check-label" for="trapDoorInside">Yes</label>
+                        </div>
+                        <div class="form-check form-check-inline pb-4">
+                            <input class="form-check-input" type="radio" name="group6" value="No">
+                            <label class="form-check-label" for="trapDoorInside">No</label>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-6">
+                        <div class="form-group">
+                            <label for="cookingOnPremises">Cooking on Premises?</label>
+                        </div>
+                        <div class="form-check form-check-inline pb-4">
+                            <input class="form-check-input" type="radio" name="group7" value="Yes">
+                            <label class="form-check-label" for="cookingOnPremises">Yes</label>
+                        </div>
+                        <div class="form-check form-check-inline pb-4">
+                            <input class="form-check-input" type="radio" name="group7" value="No">
+                            <label class="form-check-label" for="cookingOnPremises">No</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mt-4">
+                    <div class="col-md-12 col-12">
+                        <div class="form-group">
+                            <label for="occupiedArea">Occupied Area (please look at your lease or give approximates):</label>
+                            <input type="text" class="form-control" id="occupiedArea"  placeholder="">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section Three-->
+
+                <div class="row">
+                    <div class="col-12">
+                        <h5 class="my-5 text-danger font-weight-bold">General Liability:</h5>
+                    </div>
+
+                    <div class="col-md-6 col-6">
+                        <div class="form-group">
+                            <label for="perOccurrence">Per Occurrence $:</label>
+                            <input type="text" class="form-control" id="perOccurrence" placeholder="">
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-6">
+                        <div class="form-group">
+                            <label for="generalAggregate">General Aggregate $:</label>
+                            <input type="text" class="form-control" id="generalAggregate" placeholder="">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4 col-6">
+                        <div class="form-group">
+                            <label for="liquorSales">Liquor Sales $:</label>
+                            <input type="text" class="form-control" id="liquorSales" placeholder="">
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-6">
+                        <div class="form-group">
+                            <label for="foodSales">Food Sales $:</label>
+                            <input type="text" class="form-control" id="foodSales" placeholder="">
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-6">
+                        <div class="form-group">
+                            <label for="grossSaleRent">Gross Sales/Rent $:</label>
+                            <input type="text" class="form-control" id="grossSaleRent" placeholder="">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6 col-6">
+                        <div class="form-group">
+                            <label for="typeOfEntertainment">Type of Entertainment:</label>
+                            <input type="text" class="form-control" id="typeOfEntertainment" placeholder="">
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-6">
+                        <div class="form-group">
+                            <label for="sizeOfDanceFloor">Size of dance floor:</label>
+                            <input type="text" class="form-control" id="sizeOfDanceFloor" placeholder="">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6 col-6">
+                        <div class="form-group">
+                            <label for="additionalInsured">Additional Insured:</label>
+                            <input type="text" class="form-control" id="additionalInsured" placeholder="">
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-6">
+                        <div class="form-group">
+                            <label for="mortgagee">Mortgagee:</label>
+                            <input type="text" class="form-control" id="mortgagee" placeholder="">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 col-6">
+                        <div class="form-group">
+                            <label for="landlord">Landlord:</label>
+                            <input type="text" class="form-control" id="landlord" placeholder="">
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-6">
+                        <div class="form-group">
+                            <label for="lossPayee">Loss Payee:</label>
+                            <input type="text" class="form-control" id="lossPayee" placeholder="">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 col-12">
+                        <div class="form-group">
+                            <label for="address">Address:</label>
+                            <input type="text" class="form-control" id="address" placeholder="">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section Four-->
+
+                <div class="row">
+                    <div class="col-12">
+                        <h5 class="my-5 text-danger font-weight-bold">Workers Compensation & Disability:</h5>
+                    </div>
+
+                    <div class="col-md-4 col-4">
+                        <div class="form-group">
+                            <label for="employees">Employees:</label>
+                        </div>
+                        <div class="form-check form-check-inline pb-4">
+                            <input class="form-check-input" type="radio" name="group8" value="Male">
+                            <label class="form-check-label" for="employees">Male</label>
+                        </div>
+                        <div class="form-check form-check-inline pb-4">
+                            <input class="form-check-input" type="radio" name="group8" value="Female">
+                            <label class="form-check-label" for="employees">Female</label>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-4">
+                        <div class="form-group">
+                            <label for="workingPeriod">Working Period:</label>
+                        </div>
+                        <div class="form-check form-check-inline pb-4">
+                            <input class="form-check-input" type="radio" name="group9" value="Full-time">
+                            <label class="form-check-label" for="workingPeriod">Full-time</label>
+                        </div>
+                        <div class="form-check form-check-inline pb-4">
+                            <input class="form-check-input" type="radio" name="group9" value="Part-time:">
+                            <label class="form-check-label" for="workingPeriod">Part-time:</label>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-4">
+                        <div class="form-group">
+                            <label for="deliveries">Deliveries?</label>
+                        </div>
+                        <div class="form-check form-check-inline pb-4">
+                            <input class="form-check-input" type="radio" name="group10" value="Bike">
+                            <label class="form-check-label" for="deliveries">Bike</label>
+                        </div>
+                        <div class="form-check form-check-inline pb-4">
+                            <input class="form-check-input" type="radio" name="group10" value="Car">
+                            <label class="form-check-label" for="deliveries">Car</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6 col-12">
+                        <div class="form-group">
+                            <label for="fullTimePay">Full time employee’s payroll, how much is it? $</label>
+                            <input type="text" class="form-control" id="fullTimePay" placeholder="">
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-12">
+                        <div class="form-group">
+                            <label for="partTimePay">Part time employee’s payroll, how much is it? $</label>
+                            <input type="text" class="form-control" id="partTimePay" placeholder="">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4 col-12">
+                        <div class="form-group">
+                            <label for="tips">Does payroll include tips, how much in tips?</label>
+                            <input type="text" class="form-control" id="tips" placeholder="">
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 col-12">
+                        <div class="form-group">
+                            <label for="grossSale">Gross sale of last year? $</label>
+                            <input type="text" class="form-control" id="grossSale" placeholder="">
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 col-12">
+                        <div class="form-group">
+                            <label for="currentGrossSale">Current year gross sale? $</label>
+                            <input type="text" class="form-control" id="currentGrossSale" placeholder="">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4 col-12">
+                        <div class="form-group">
+                            <label for="accountingFirm">Accounting Firm:</label>
+                            <input type="text" class="form-control" id="accountingFirm" placeholder="">
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 col-12">
+                        <div class="form-group">
+                            <label for="phoneNumberTwo">Phone #:</label>
+                            <input type="number" class="form-control" id="phoneNumberTwo" placeholder="">
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 col-12">
+                        <div class="form-group">
+                            <label for="contactName">Contact Name:</label>
+                            <input type="text" class="form-control" id="contactName" placeholder="">
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- Section Five -->
+                <div class="row">
+                    <div class="col-12">
+                        <h5 class="my-5 text-danger font-weight-bold">Prior Carrier Information:</h5>
+                    </div>
+
+                    <div class="col-md-4 col-12">
+                        <div class="form-group">
+                            <label for="carrier">Carrier:</label>
+                            <input type="text" class="form-control" id="carrier" placeholder="">
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 col-12">
+                        <div class="form-group">
+                            <label for="policy">Policy #:</label>
+                            <input type="text" class="form-control" id="policy" placeholder="">
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 col-12">
+                        <div class="form-group">
+                            <label for="policyPeriod">Policy Period #:</label>
+                            <input type="text" class="form-control" id="policyPeriod" placeholder="">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-3 col-6">
+                        <div class="form-group">
+                            <label for="carrierTwo">Carrier:</label>
+                            <input type="text" class="form-control" id="carrierTwo" placeholder="">
+                        </div>
+                    </div>
+
+                    <div class="col-md-3 col-6">
+                        <div class="form-group">
+                            <label for="policyTwo">Policy #:</label>
+                            <input type="text" class="form-control" id="policyTwo" placeholder="">
+                        </div>
+                    </div>
+
+                    <div class="col-md-3 col-6">
+                        <div class="form-group">
+                            <label for="policyPeriodTwo">Policy Period #:</label>
+                            <input type="text" class="form-control" id="policyPeriodTwo" placeholder="">
+                        </div>
+                    </div>
+
+                    <div class="col-md-3 col-6">
+                        <div class="form-group">
+                            <label for="priorLosses">Prior losses:</label>
+                        </div>
+                        <div class="form-check form-check-inline pb-4">
+                            <input class="form-check-input" type="radio" name="group11" value="Yes">
+                            <label class="form-check-label" for="priorLosses">Yes</label>
+                        </div>
+                        <div class="form-check form-check-inline pb-4">
+                            <input class="form-check-input" type="radio" name="group11" value="No">
+                            <label class="form-check-label" for="priorLosses">No</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12 col-12">
+                        <div class="form-group">
+                            <label for="description">Description:</label>
+                            <textarea class="form-control" id="description" rows="3"></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12 col-12">
+                        <div class="form-group">
+                            <label for="additionalNotes">Additional notes you want to tell the broker?</label>
+                            <textarea class="form-control" id="additionalNotes" rows="3"></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12 col-12">
+                        <div class="form-group">
+                            <label for="uploadDocuments">Upload Documents:</label>
+                            <input type="file" class="form-control-file" id="uploadDocuments" multiple>
+                          </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12 col-12">
+                        <button type="submit" class="btn btn-danger mt-2 mb-5"  onclick="
+                        event.preventDefault(); submitForm()">Submit</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <!-- My script -->
+  
+    <script type="text/javascript">
+        
+	function submitForm(){
+        
+    let agencyName = document.getElementById("agencyName").value;
+    let phoneNumber = document.getElementById("phoneNumber").value;
+    let agencyContactName = document.getElementById("agencyContactName").value;
+    let agencyEmail = document.getElementById("agencyEmail").value;
+    let nameInsured = document.getElementById("nameInsured").value;
+    let spouseName = document.getElementById("spouseName").value;
+    let spouseEmail = document.getElementById("spouseEmail").value;
+    let dob = document.getElementById("dob").value;
+    let fein = document.getElementById("fein").value;
+    let phoneNumberTwo = document.getElementById("phoneNumberTwo").value;
+    let mailingAddress = document.getElementById("mailingAddress").value;
+    let propertyLocation = document.getElementById("propertyLocation").value;
+    let typeOfConstruction = document.getElementById("typeOfConstruction").value;
+    let alarms = document.getElementById("alarms").value;
+    let heatType = document.getElementById("heatType").value;
+    let oilTankLocation = document.getElementById("oilTankLocation").value;
+    let dwelling = document.getElementById("dwelling").value;
+    let deductible = document.getElementById("deductible").value;
+    let liability = document.getElementById("liability").value;
+    let medicalPayments = document.getElementById("medicalPayments").value;
+    let claims = document.getElementById("claims").value;
+    let yearBuilt = document.getElementById("yearBuilt").value;
+    let squareFootage = document.getElementById("squareFootage").value;
+    let typeOfRoof = document.getElementById("typeOfRoof").value;
+    let numberOfAppartments = document.getElementById("numberOfAppartments").value;
+    let roofAge = document.getElementById("roofAge").value;
+    let wiringAge = document.getElementById("wiringAge").value;
+    let heatUpdated = document.getElementById("heatUpdated").value;
+    let plumbingAge = document.getElementById("plumbingAge").value;
+
+    let pool = document.querySelectorAll('input[name="group1"]:checked');
+    let poolValue = pool.length>0? pool[0].value: null;
+    let trampoline = document.querySelectorAll('input[name="group2"]:checked');
+    let trampolineValue = trampoline.length>0? trampoline[0].value: null;
+    let otOccupied = document.querySelectorAll('input[name="group3"]:checked');
+    let otOccupiedValue = otOccupied.length>0? otOccupied[0].value: null;
+     let psResidence = document.querySelectorAll('input[name="group4"]:checked');
+    let psResidenceValue = psResidence.length>0? psResidence[0].value: null;
+
+    
+    let pets = document.getElementById("pets").value;
+    let currentInsurer = document.getElementById("currentInsurer").value;
+    
+    let carInsurance= document.querySelectorAll('input[name="group5"]:checked');
+    let carInsuranceValue = carInsurance.length>0? carInsurance[0].value: null;
+
+    let make = document.getElementById("make").value;
+    let model = document.getElementById("model").value;
+    let vin = document.getElementById("vin").value;
+
+    let lifeInsurance= document.querySelectorAll('input[name="group6"]:checked');
+    let lifeInsuranceValue = lifeInsurance.length>0? lifeInsurance[0].value: null;
+    let rentersInsurance= document.querySelectorAll('input[name="group7"]:checked');
+    let rentersInsuranceValue = rentersInsurance.length>0? rentersInsurance[0].value: null;
+
+    let note = document.getElementById("note").value;
+
+    Email.send({
+        
+	    SecureToken : "15a73a31-763c-41ae-ae8b-6d49619b80f0 ",
+	    To : 'akilgazi.ioe@gmail.com',
+	    From : "eobiang@gmail.com",
+	    Subject : "Insurance form submitted",
+	    Body : `<html>
+        <head>
+        <style>
+            table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            text-align: center;
+            font-weight: bold;
+            }
+            th, td {
+            padding: 5px;
+            }
+        </style>
+        </head>
+        <table>
+            <tr>
+                <th>Questions</th>
+                <th>Answers</th> 
+            </tr>
+            <tr>
+                <td>Agency name:</td>
+                <td>${agencyName}</td> 
+            </tr>
+            <tr>
+                <td>Phone #:</td>
+                <td>${phoneNumber}</td> 
+            </tr>
+            <tr>
+                <td>Agency Contact Name:</td>
+                <td>${agencyContactName}</td> 
+            </tr>
+            <tr>
+                <td>Email:</td>
+                <td>${agencyEmail}</td> 
+            </tr>
+            <tr>
+                <td>Named Insured:</td>
+                <td>${nameInsured}</td> 
+            </tr>
+            <tr>
+                <td>Spouse Name:</td>
+                <td>${spouseName}</td> 
+            </tr>
+            <tr>
+                <td>Spouse Email:</td>
+                <td>${spouseEmail}</td> 
+            </tr>
+            <tr>
+                <td>DOB:</td>
+                <td>${dob}</td> 
+            </tr>
+            <tr>
+                <td>SS #/FEIN:</td>
+                <td>${fein}</td> 
+            </tr>
+            <tr>
+                <td>Phone #:</td>
+                <td>${phoneNumberTwo}</td> 
+            </tr>
+            <tr>
+                <td>Mailing Address(include County):</td>
+                <td>${mailingAddress}</td> 
+            </tr>
+            <tr>
+                <td>Property Location (include County):</td>
+                <td>${propertyLocation}</td> 
+            </tr>
+            <tr>
+                <td>Type of Construction:</td>
+                <td>${typeOfConstruction}</td> 
+            </tr>
+            <tr>
+                <td>Alarms:</td>
+                <td>${alarms}</td> 
+            </tr>
+            <tr>
+                <td>Heat Type:</td>
+                <td>${heatType}</td> 
+            </tr>
+            <tr>
+                <td>Oil Tank Location:</td>
+                <td>${oilTankLocation}</td> 
+            </tr>
+            <tr>
+                <td>Dwelling $:</td>
+                <td>${dwelling}</td> 
+            </tr>
+            <tr>
+                <td>Deductible:</td>
+                <td>${deductible}</td> 
+            </tr>
+            <tr>
+                <td>Liability:</td>
+                <td>${liability}</td> 
+            </tr>
+            <tr>
+                <td>Medical Payments:</td>
+                <td>${medicalPayments}</td> 
+            </tr>
+            <tr>
+                <td>Claims:</td>
+                <td>${claims}</td> 
+            </tr>
+            <tr>
+                <td>Year Built:</td>
+                <td>${yearBuilt}</td> 
+            </tr>
+            <tr>
+                <td>Square Footage:</td>
+                <td>${squareFootage}</td> 
+            </tr>
+            <tr>
+                <td>Type of Roof:</td>
+                <td>${typeOfRoof}</td> 
+            </tr>
+            <tr>
+                <td># of Families/Apartments:</td>
+                <td>${numberOfAppartments}</td> 
+            </tr>
+            <tr>
+                <td>Roof Age:</td>
+                <td>${roofAge}</td> 
+            </tr>
+            <tr>
+                <td>Wiring Age/Updates:</td>
+                <td>${wiringAge}</td> 
+            </tr>
+            <tr>
+                <td>Heat Updated/Serviced:</td>
+                <td>${heatUpdated}</td> 
+            </tr>
+            <tr>
+                <td>Plumbing Age/Updated:</td>
+                <td>${plumbingAge}</td> 
+            </tr>
+            <tr>
+                <td>Pool:</td>
+                <td>${poolValue}</td> 
+            </tr>
+            <tr>
+                <td>Trampoline:</td>
+                <td>${trampolineValue}</td> 
+            </tr>
+            <tr>
+                <td>Owner/Tenant Occupied:</td>
+                <td>${otOccupiedValue}</td> 
+            </tr>
+            <tr>
+                <td>Primary/Secondary Residence:</td>
+                <td>${psResidenceValue}</td> 
+            </tr>
+            <tr>
+                <td>Dogs/other pets:</td>
+                <td>${pets}</td> 
+            </tr>
+            <tr>
+                <td>Current Insurer:</td>
+                <td>${currentInsurer}</td> 
+            </tr>
+            <tr>
+                <td>Do you need car insurance?</td>
+                <td>${carInsuranceValue}</td> 
+            </tr>
+            <tr>
+                <td>Make:</td>
+                <td>${make}</td> 
+            </tr>
+            <tr>
+                <td>Model:</td>
+                <td>${model}</td> 
+            </tr>
+            <tr>
+                <td>VIN #:</td>
+                <td>${vin}</td> 
+            </tr>
+            <tr>
+                <td>Do you need life insurance?</td>
+                <td>${lifeInsuranceValue}</td> 
+            </tr>
+            <tr>
+                <td>Do you need renters insurance?</td>
+                <td>${rentersInsuranceValue}</td> 
+            </tr>
+            <tr>
+                <td>Note:</td>
+                <td>${note}</td> 
+            </tr>
+    </table>
+</html>`,
+		
+	}).then(
+	  message => alert(message)
+	);
+    console.log(psResidenceValue);
+}
+</script>
+  </body>
+</html>
