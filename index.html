@@ -643,35 +643,14 @@
 
                     <div class="col-md-4 col-12">
                         <div class="form-group">
-                            <label for="policyPeriod">Policy Period #:</label>
+                            <label for="policyPeriod">Policy Dates #:</label>
                             <input type="text" class="form-control" id="policyPeriod" placeholder="">
                         </div>
                     </div>
                 </div>
 
                 <div class="row">
-                    <div class="col-md-3 col-6">
-                        <div class="form-group">
-                            <label for="carrierTwo">Carrier:</label>
-                            <input type="text" class="form-control" id="carrierTwo" placeholder="">
-                        </div>
-                    </div>
-
-                    <div class="col-md-3 col-6">
-                        <div class="form-group">
-                            <label for="policyTwo">Policy #:</label>
-                            <input type="text" class="form-control" id="policyTwo" placeholder="">
-                        </div>
-                    </div>
-
-                    <div class="col-md-3 col-6">
-                        <div class="form-group">
-                            <label for="policyPeriodTwo">Policy Period #:</label>
-                            <input type="text" class="form-control" id="policyPeriodTwo" placeholder="">
-                        </div>
-                    </div>
-
-                    <div class="col-md-3 col-6">
+                    <div class="col-md-12 col-12">
                         <div class="form-group">
                             <label for="priorLosses">Prior losses:</label>
                         </div>
@@ -845,10 +824,6 @@
                             let carrier = document.getElementById("carrier").value;
                             let policy = document.getElementById("policy").value;
                             let policyPeriod = document.getElementById("policyPeriod").value;
-
-                            let carrierTwo = document.getElementById("carrierTwo").value;
-                            let policyTwo = document.getElementById("policyTwo").value;
-                            let policyPeriodTwo = document.getElementById("policyPeriodTwo").value;
 
                             let priorLosses = document.querySelectorAll('input[name="group11"]:checked');
                             let priorLossesValue = priorLosses.length > 0 ? priorLosses[0].value : null;
@@ -1151,20 +1126,8 @@
                                         <td>${policy}</td> 
                                     </tr>
                                     <tr>
-                                        <td>Policy Period #:</td>
+                                        <td>Policy Dates #:</td>
                                         <td>${policyPeriod}</td> 
-                                    </tr>
-                                    <tr>
-                                        <td>Carrier:</td>
-                                        <td>${carrierTwo}</td> 
-                                    </tr>
-                                    <tr>
-                                        <td>Policy #:</td>
-                                        <td>${policyTwo}</td> 
-                                    </tr>
-                                    <tr>
-                                        <td>Policy Period #:</td>
-                                        <td>${policyPeriodTwo}</td> 
                                     </tr>
                                     <tr>
                                         <td>Prior losses:</td>
