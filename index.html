@@ -19,7 +19,7 @@
     </head>
     <body>
 
-        <form>
+        <form class="needs-validation" novalidate>
             <div class="container mt-5 mb-5">
                 <!-- Section One -->
                 <div class="row">
@@ -78,7 +78,9 @@
                         <div class="form-group">
                             <label for="contactEmail">Email:</label>
                             <input type="email" class="form-control" id="contactEmail" aria-describedby="emailHelp" placeholder="" required>
-
+                            <div class="invalid-feedback">
+                                Please provide an Email.
+                            </div>
                             <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
                         </div>
                     </div>
@@ -120,6 +122,9 @@
                         <div class="form-group">
                             <label for="st">St:</label>
                             <input type="text" class="form-control" id="st" placeholder="" required>
+                            <div class="invalid-feedback">
+                                Please provide a State.
+                            </div>
                         </div>
                     </div>
 
@@ -127,6 +132,9 @@
                         <div class="form-group">
                             <label for="zipCode">Zip Code:</label>
                             <input type="text" class="form-control" id="zipCode" placeholder="" required>
+                            <div class="invalid-feedback">
+                                Please provide a Zip Code.
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -152,6 +160,9 @@
                         <div class="form-group">
                             <label for="stTwo">St:</label>
                             <input type="text" class="form-control" id="stTwo" placeholder="" required>
+                            <div class="invalid-feedback">
+                                Please provide a State.
+                            </div>
                         </div>
                     </div>
 
@@ -159,6 +170,9 @@
                         <div class="form-group">
                             <label for="zipCodeTwo">Zip Code:</label>
                             <input type="text" class="form-control" id="zipCodeTwo" placeholder="" required>
+                            <div class="invalid-feedback">
+                                Please provide a Zip Code.
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -168,12 +182,18 @@
                         <div class="form-group">
                             <label for="ohFrom">Hours of Operation From:</label>
                             <input type="text" class="form-control" id="ohFrom"  placeholder="Enter start time of operation" required>
+                            <div class="invalid-feedback">
+                                Please provide Starting Hour of operation.
+                            </div>
                         </div>
                     </div>
                     <div class="col-md-6 col-12">
                         <div class="form-group">
                             <label for="ohTo">To:</label>
                             <input type="text" class="form-control" id="ohTo"  placeholder="Enter end time of operation" required>
+                            <div class="invalid-feedback">
+                                Please provide Ending Hour of operation.
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -197,7 +217,7 @@
                     <div class="col-md-12 col-12">
                         <div class="form-group">
                             <label for="descriptionOfBusiness">Description of Business:</label>
-                            <textarea class="form-control" id="note" rows="3" id="descriptionOfBusiness"></textarea>
+                            <textarea id="descriptionOfBusiness" class="form-control" rows="3" ></textarea>
                         </div>
                     </div>
                 </div>
@@ -587,8 +607,8 @@
 
                     <div class="col-md-4 col-12">
                         <div class="form-group">
-                            <label for="phoneNumberTwo">Phone #:</label>
-                            <input type="number" class="form-control" id="phoneNumberTwo" placeholder="">
+                            <label for="phoneNumberThree">Phone #:</label>
+                            <input type="number" class="form-control" id="phoneNumberThree" placeholder="">
                         </div>
                     </div>
 
@@ -695,8 +715,11 @@
 
                 <div class="row">
                     <div class="col-md-12 col-12">
-                        <button type="submit" class="btn btn-danger mt-2 mb-5"  onclick="
-                        event.preventDefault(); submitForm()">Submit</button>
+                        <button type="submit" class="btn btn-danger mt-2 mb-5" id="isSubmit">Submit</button>
+                        <button class="btn btn-primary" type="button" disabled id="isLoading">
+                            <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                            Loading...
+                        </button>
                     </div>
                 </div>
             </div>
@@ -710,267 +733,470 @@
     <!-- My script -->
   
     <script type="text/javascript">
-        
-	function submitForm(){
-        
-    let agencyName = document.getElementById("agencyName").value;
-    let phoneNumber = document.getElementById("phoneNumber").value;
-    let agencyContactName = document.getElementById("agencyContactName").value;
-    let agencyEmail = document.getElementById("agencyEmail").value;
-    let nameInsured = document.getElementById("nameInsured").value;
-    let spouseName = document.getElementById("spouseName").value;
-    let spouseEmail = document.getElementById("spouseEmail").value;
-    let dob = document.getElementById("dob").value;
-    let fein = document.getElementById("fein").value;
-    let phoneNumberTwo = document.getElementById("phoneNumberTwo").value;
-    let mailingAddress = document.getElementById("mailingAddress").value;
-    let propertyLocation = document.getElementById("propertyLocation").value;
-    let typeOfConstruction = document.getElementById("typeOfConstruction").value;
-    let alarms = document.getElementById("alarms").value;
-    let heatType = document.getElementById("heatType").value;
-    let oilTankLocation = document.getElementById("oilTankLocation").value;
-    let dwelling = document.getElementById("dwelling").value;
-    let deductible = document.getElementById("deductible").value;
-    let liability = document.getElementById("liability").value;
-    let medicalPayments = document.getElementById("medicalPayments").value;
-    let claims = document.getElementById("claims").value;
-    let yearBuilt = document.getElementById("yearBuilt").value;
-    let squareFootage = document.getElementById("squareFootage").value;
-    let typeOfRoof = document.getElementById("typeOfRoof").value;
-    let numberOfAppartments = document.getElementById("numberOfAppartments").value;
-    let roofAge = document.getElementById("roofAge").value;
-    let wiringAge = document.getElementById("wiringAge").value;
-    let heatUpdated = document.getElementById("heatUpdated").value;
-    let plumbingAge = document.getElementById("plumbingAge").value;
+        (function() {
+            'use strict';
+            $("#isLoading").css("display", "none");
+            window.addEventListener('load', function() {
+                // Fetch all the forms we want to apply custom Bootstrap validation styles to
+                var forms = document.getElementsByClassName('needs-validation');
+                // Loop over them and prevent submission
+                var validation = Array.prototype.filter.call(forms, function(form) {
+                    form.addEventListener('submit', function(event) {
+                        if (form.checkValidity() === false) {
+                            document.body.scrollTop = 0; // For Safari
+                            document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+                            event.preventDefault();
 
-    let pool = document.querySelectorAll('input[name="group1"]:checked');
-    let poolValue = pool.length>0? pool[0].value: null;
-    let trampoline = document.querySelectorAll('input[name="group2"]:checked');
-    let trampolineValue = trampoline.length>0? trampoline[0].value: null;
-    let otOccupied = document.querySelectorAll('input[name="group3"]:checked');
-    let otOccupiedValue = otOccupied.length>0? otOccupied[0].value: null;
-     let psResidence = document.querySelectorAll('input[name="group4"]:checked');
-    let psResidenceValue = psResidence.length>0? psResidence[0].value: null;
+                            event.stopPropagation();
+                        }
+                        form.classList.add('was-validated');
+                        if (form.checkValidity() === true) {
 
-    
-    let pets = document.getElementById("pets").value;
-    let currentInsurer = document.getElementById("currentInsurer").value;
-    
-    let carInsurance= document.querySelectorAll('input[name="group5"]:checked');
-    let carInsuranceValue = carInsurance.length>0? carInsurance[0].value: null;
+                            $("#isSubmit").css("display", "none");
+                            $("#isLoading").css("display", "block");
+                            event.preventDefault();
+                            let corporationName = document.getElementById("corporationName").value;
+                            let dba = document.getElementById("dba").value;
+                            let executive = document.getElementById("executive").value;
+                            let phoneNumber = document.getElementById("phoneNumber").value;
+                            let contactPerson = document.getElementById("contactPerson").value;
+                            let phoneNumberTwo = document.getElementById("phoneNumberTwo").value;
+                            let contactEmail = document.getElementById("contactEmail").value;
+                            let businessMain = document.getElementById("businessMain").value;
+                            let taxId = document.getElementById("taxId").value;
+                            let businessAddress = document.getElementById("businessAddress").value;
+                            let city = document.getElementById("city").value;
+                            let st = document.getElementById("st").value;
+                            let zipCode = document.getElementById("zipCode").value;
+                            let mailingAddress = document.getElementById("mailingAddress").value;
+                            let cityTwo = document.getElementById("cityTwo").value;
+                            let stTwo = document.getElementById("stTwo").value;
+                            let zipCodeTwo = document.getElementById("zipCodeTwo").value;
+                            let ohFrom = document.getElementById("ohFrom").value;
+                            let ohTo = document.getElementById("ohTo").value;
+                            let yearOfExperience = document.getElementById("yearOfExperience").value;
+                            let yearAtLocation = document.getElementById("yearAtLocation").value;
+                            let descriptionOfBusiness = document.getElementById("descriptionOfBusiness").value;
 
-    let make = document.getElementById("make").value;
-    let model = document.getElementById("model").value;
-    let vin = document.getElementById("vin").value;
+                            let typeOfInsurance = [];
+                            $.each($("input[name='group1']:checked"), function() {
+                                typeOfInsurance.push($(this).val());
+                            });
+                            let typeOfInsuranceValue = typeOfInsurance.join(", ");
 
-    let lifeInsurance= document.querySelectorAll('input[name="group6"]:checked');
-    let lifeInsuranceValue = lifeInsurance.length>0? lifeInsurance[0].value: null;
-    let rentersInsurance= document.querySelectorAll('input[name="group7"]:checked');
-    let rentersInsuranceValue = rentersInsurance.length>0? rentersInsurance[0].value: null;
+                            let autoInsurance = document.querySelectorAll('input[name="group2"]:checked');
+                            let autoInsuranceValue = autoInsurance.length > 0 ? autoInsurance[0].value : null;
 
-    let note = document.getElementById("note").value;
+                            let building = document.getElementById("building").value;
+                            let content = document.getElementById("content").value;
+                            let businessInc = document.getElementById("businessInc").value;
+                            let constructionBrick = document.getElementById("constructionBrick").value;
+                            let frame = document.getElementById("frame").value;
+                            let stories = document.getElementById("stories").value;
+                            let yearBuilt = document.getElementById("yearBuilt").value;
+                            let numberOfUnits = document.getElementById("numberOfUnits").value;
 
-    Email.send({
-        
-	    SecureToken : "15a73a31-763c-41ae-ae8b-6d49619b80f0 ",
-	    To : 'akilgazi.ioe@gmail.com',
-	    From : "eobiang@gmail.com",
-	    Subject : "Insurance form submitted",
-	    Body : `<html>
-        <head>
-        <style>
-            table, th, td {
-            border: 1px solid black;
-            border-collapse: collapse;
-            text-align: center;
-            font-weight: bold;
-            }
-            th, td {
-            padding: 5px;
-            }
-        </style>
-        </head>
-        <table>
-            <tr>
-                <th>Questions</th>
-                <th>Answers</th> 
-            </tr>
-            <tr>
-                <td>Agency name:</td>
-                <td>${agencyName}</td> 
-            </tr>
-            <tr>
-                <td>Phone #:</td>
-                <td>${phoneNumber}</td> 
-            </tr>
-            <tr>
-                <td>Agency Contact Name:</td>
-                <td>${agencyContactName}</td> 
-            </tr>
-            <tr>
-                <td>Email:</td>
-                <td>${agencyEmail}</td> 
-            </tr>
-            <tr>
-                <td>Named Insured:</td>
-                <td>${nameInsured}</td> 
-            </tr>
-            <tr>
-                <td>Spouse Name:</td>
-                <td>${spouseName}</td> 
-            </tr>
-            <tr>
-                <td>Spouse Email:</td>
-                <td>${spouseEmail}</td> 
-            </tr>
-            <tr>
-                <td>DOB:</td>
-                <td>${dob}</td> 
-            </tr>
-            <tr>
-                <td>SS #/FEIN:</td>
-                <td>${fein}</td> 
-            </tr>
-            <tr>
-                <td>Phone #:</td>
-                <td>${phoneNumberTwo}</td> 
-            </tr>
-            <tr>
-                <td>Mailing Address(include County):</td>
-                <td>${mailingAddress}</td> 
-            </tr>
-            <tr>
-                <td>Property Location (include County):</td>
-                <td>${propertyLocation}</td> 
-            </tr>
-            <tr>
-                <td>Type of Construction:</td>
-                <td>${typeOfConstruction}</td> 
-            </tr>
-            <tr>
-                <td>Alarms:</td>
-                <td>${alarms}</td> 
-            </tr>
-            <tr>
-                <td>Heat Type:</td>
-                <td>${heatType}</td> 
-            </tr>
-            <tr>
-                <td>Oil Tank Location:</td>
-                <td>${oilTankLocation}</td> 
-            </tr>
-            <tr>
-                <td>Dwelling $:</td>
-                <td>${dwelling}</td> 
-            </tr>
-            <tr>
-                <td>Deductible:</td>
-                <td>${deductible}</td> 
-            </tr>
-            <tr>
-                <td>Liability:</td>
-                <td>${liability}</td> 
-            </tr>
-            <tr>
-                <td>Medical Payments:</td>
-                <td>${medicalPayments}</td> 
-            </tr>
-            <tr>
-                <td>Claims:</td>
-                <td>${claims}</td> 
-            </tr>
-            <tr>
-                <td>Year Built:</td>
-                <td>${yearBuilt}</td> 
-            </tr>
-            <tr>
-                <td>Square Footage:</td>
-                <td>${squareFootage}</td> 
-            </tr>
-            <tr>
-                <td>Type of Roof:</td>
-                <td>${typeOfRoof}</td> 
-            </tr>
-            <tr>
-                <td># of Families/Apartments:</td>
-                <td>${numberOfAppartments}</td> 
-            </tr>
-            <tr>
-                <td>Roof Age:</td>
-                <td>${roofAge}</td> 
-            </tr>
-            <tr>
-                <td>Wiring Age/Updates:</td>
-                <td>${wiringAge}</td> 
-            </tr>
-            <tr>
-                <td>Heat Updated/Serviced:</td>
-                <td>${heatUpdated}</td> 
-            </tr>
-            <tr>
-                <td>Plumbing Age/Updated:</td>
-                <td>${plumbingAge}</td> 
-            </tr>
-            <tr>
-                <td>Pool:</td>
-                <td>${poolValue}</td> 
-            </tr>
-            <tr>
-                <td>Trampoline:</td>
-                <td>${trampolineValue}</td> 
-            </tr>
-            <tr>
-                <td>Owner/Tenant Occupied:</td>
-                <td>${otOccupiedValue}</td> 
-            </tr>
-            <tr>
-                <td>Primary/Secondary Residence:</td>
-                <td>${psResidenceValue}</td> 
-            </tr>
-            <tr>
-                <td>Dogs/other pets:</td>
-                <td>${pets}</td> 
-            </tr>
-            <tr>
-                <td>Current Insurer:</td>
-                <td>${currentInsurer}</td> 
-            </tr>
-            <tr>
-                <td>Do you need car insurance?</td>
-                <td>${carInsuranceValue}</td> 
-            </tr>
-            <tr>
-                <td>Make:</td>
-                <td>${make}</td> 
-            </tr>
-            <tr>
-                <td>Model:</td>
-                <td>${model}</td> 
-            </tr>
-            <tr>
-                <td>VIN #:</td>
-                <td>${vin}</td> 
-            </tr>
-            <tr>
-                <td>Do you need life insurance?</td>
-                <td>${lifeInsuranceValue}</td> 
-            </tr>
-            <tr>
-                <td>Do you need renters insurance?</td>
-                <td>${rentersInsuranceValue}</td> 
-            </tr>
-            <tr>
-                <td>Note:</td>
-                <td>${note}</td> 
-            </tr>
-    </table>
-</html>`,
-		
-	}).then(
-	  message => alert(message)
-	);
-    console.log(psResidenceValue);
-}
-</script>
+                            let alarm = document.querySelectorAll('input[name="group3"]:checked');
+                            let alarmValue = alarm.length > 0 ? alarm[0].value : null;
+
+                            let sprinkler = document.querySelectorAll('input[name="group4"]:checked');
+                            let sprinklerValue = sprinkler.length > 0 ? sprinkler[0].value : null;
+
+                            let basement = document.querySelectorAll('input[name="group5"]:checked');
+                            let basementValue = basement.length > 0 ? basement[0].value : null;
+
+                            let trapDoorInside = document.querySelectorAll('input[name="group6"]:checked');
+                            let trapDoorInsideValue = trapDoorInside.length > 0 ? trapDoorInside[0].value : null;
+
+                            let cookingOnPremises = document.querySelectorAll('input[name="group7"]:checked');
+                            let cookingOnPremisesValue = cookingOnPremises.length > 0 ? cookingOnPremises[0].value : null;
+
+                            let occupiedArea = document.getElementById("occupiedArea").value;
+                            let perOccurrence = document.getElementById("perOccurrence").value;
+                            let generalAggregate = document.getElementById("generalAggregate").value;
+                            let liquorSales = document.getElementById("liquorSales").value;
+                            let foodSales = document.getElementById("foodSales").value;
+                            let grossSaleRent = document.getElementById("grossSaleRent").value;
+                            let typeOfEntertainment = document.getElementById("typeOfEntertainment").value;
+                            let sizeOfDanceFloor = document.getElementById("sizeOfDanceFloor").value;
+                            let additionalInsured = document.getElementById("additionalInsured").value;
+                            let mortgagee = document.getElementById("mortgagee").value;
+                            let landlord = document.getElementById("landlord").value;
+                            let lossPayee = document.getElementById("lossPayee").value;
+                            let address = document.getElementById("address").value;
+
+                            let employees = document.querySelectorAll('input[name="group8"]:checked');
+                            let employeesValue = employees.length > 0 ? employees[0].value : null;
+
+                            let workingPeriod = document.querySelectorAll('input[name="group9"]:checked');
+                            let workingPeriodValue = workingPeriod.length > 0 ? workingPeriod[0].value : null;
+
+                            let deliveries = document.querySelectorAll('input[name="group10"]:checked');
+                            let deliveriesValue = deliveries.length > 0 ? deliveries[0].value : null;
+
+                            let fullTimePay = document.getElementById("fullTimePay").value;
+                            let partTimePay = document.getElementById("partTimePay").value;
+                            let tips = document.getElementById("tips").value;
+                            let grossSale = document.getElementById("grossSale").value;
+                            let currentGrossSale = document.getElementById("currentGrossSale").value;
+                            let accountingFirm = document.getElementById("accountingFirm").value;
+                            let phoneNumberThree = document.getElementById("phoneNumberThree").value;
+                            let contactName = document.getElementById("contactName").value;
+                            let carrier = document.getElementById("carrier").value;
+                            let policy = document.getElementById("policy").value;
+                            let policyPeriod = document.getElementById("policyPeriod").value;
+
+                            let carrierTwo = document.getElementById("carrierTwo").value;
+                            let policyTwo = document.getElementById("policyTwo").value;
+                            let policyPeriodTwo = document.getElementById("policyPeriodTwo").value;
+
+                            let priorLosses = document.querySelectorAll('input[name="group11"]:checked');
+                            let priorLossesValue = priorLosses.length > 0 ? priorLosses[0].value : null;
+                            let description = document.getElementById("description").value;
+                            let additionalNotes = document.getElementById("additionalNotes").value;
+                            let uploadDocuments = document.getElementById("uploadDocuments").value;
+
+
+                            Email.send({
+
+                                SecureToken: "15a73a31-763c-41ae-ae8b-6d49619b80f0 ",
+                                To: 'akilgazi.ioe@gmail.com',
+                                From: "eobiang@gmail.com",
+                                Subject: "Insurance form submitted",
+                                Body: `<html>
+                                <head>
+                                <style>
+                                    table, th, td {
+                                    border: 1px solid black;
+                                    border-collapse: collapse;
+                                    text-align: center;
+                                    font-weight: bold;
+                                    }
+                                    th, td {
+                                    padding: 5px;
+                                    }
+                                </style>
+                                </head>
+                                <table>
+                                    <tr>
+                                        <th>Insured General Information:</th>
+                                        <th></th> 
+                                    </tr>
+                                    <tr>
+                                        <td>Corporation Name:</td>
+                                        <td>${corporationName}</td> 
+                                    </tr>
+                                    <tr>
+                                        <td>DBA:</td>
+                                        <td>${dba}</td> 
+                                    </tr>
+                                    <tr>
+                                        <td>Executive/President:</td>
+                                        <td>${executive}</td> 
+                                    </tr>
+                                    <tr>
+                                        <td>Phone #:</td>
+                                        <td>${phoneNumber}</td> 
+                                    </tr>
+                                    <tr>
+                                        <td>Contact Person:</td>
+                                        <td>${contactPerson}</td> 
+                                    </tr>
+                                    <tr>
+                                        <td>Phone #:</td>
+                                        <td>${phoneNumberTwo}</td> 
+                                    </tr>
+                                    <tr>
+                                        <td>Email:</td>
+                                        <td>${contactEmail}</td> 
+                                    </tr>
+                                    <tr>
+                                        <td>Business Main #:</td>
+                                        <td>${businessMain}</td> 
+                                    </tr>
+                                    <tr>
+                                        <td>S.S/Tax ID:</td>
+                                        <td>${taxId}</td> 
+                                    </tr>
+                                    <tr>
+                                        <td>Business Address:</td>
+                                        <td>${businessAddress}</td> 
+                                    </tr>
+                                    <tr>
+                                        <td>City:</td>
+                                        <td>${city}</td> 
+                                    </tr>
+                                    <tr>
+                                        <td>St:</td>
+                                        <td>${st}</td> 
+                                    </tr>
+                                    <tr>
+                                        <td>Zip Code:</td>
+                                        <td>${zipCode}</td> 
+                                    </tr>
+                                    <tr>
+                                        <td>Mailing Address:</td>
+                                        <td>${mailingAddress}</td> 
+                                    </tr>
+                                    <tr>
+                                        <td>City:</td>
+                                        <td>${cityTwo}</td> 
+                                    </tr>
+                                    <tr>
+                                        <td>St:</td>
+                                        <td>${stTwo}</td> 
+                                    </tr>
+                                    <tr>
+                                        <td>Zip Code:</td>
+                                        <td>${zipCodeTwo}</td> 
+                                    </tr>
+                                    <tr>
+                                        <td>Hours of Operation From:</td>
+                                        <td>${ohFrom}</td> 
+                                    </tr>
+                                    <tr>
+                                        <td>To:</td>
+                                        <td>${ohTo}</td> 
+                                    </tr>
+                                    <tr>
+                                        <td>Years Of Experience:</td>
+                                        <td>${yearOfExperience}</td> 
+                                    </tr>
+                                    <tr>
+                                        <td>Years at this Location:</td>
+                                        <td>${yearAtLocation}</td> 
+                                    </tr>
+                                    <tr>
+                                        <td>Description of Business:</td>
+                                        <td>${descriptionOfBusiness}</td> 
+                                    </tr>
+                                    <tr>
+                                        <td>Please select the type of insurance your business requires (You can choose multiple answers):</td>
+                                        <td>${typeOfInsuranceValue}</td> 
+                                    </tr>
+                                    <tr>
+                                        <th>Property Section:</th>
+                                        <th></th> 
+                                    </tr>
+                                    <tr>
+                                        <td>Building $:</td>
+                                        <td>${building}</td> 
+                                    </tr>
+                                    <tr>
+                                        <td>Content $:</td>
+                                        <td>${content}</td> 
+                                    </tr>
+                                    <tr>
+                                        <td>Business Inc $:</td>
+                                        <td>${businessInc}</td> 
+                                    </tr>
+                                    <tr>
+                                        <td>Construction Brick:</td>
+                                        <td>${constructionBrick}</td> 
+                                    </tr>
+                                    <tr>
+                                        <td>Frame:</td>
+                                        <td>${frame}</td> 
+                                    </tr>
+                                    <tr>
+                                        <td>Stories #:</td>
+                                        <td>${stories}</td> 
+                                    </tr>
+                                    <tr>
+                                        <td>Year Built:</td>
+                                        <td>${yearBuilt}</td> 
+                                    </tr>
+                                    <tr>
+                                        <td>Number of Units</td>
+                                        <td>${numberOfUnits}</td> 
+                                    </tr>
+                                    <tr>
+                                        <td>Alarm?</td>
+                                        <td>${alarmValue}</td> 
+                                    </tr>
+                                    <tr>
+                                        <td>Sprinkler?</td>
+                                        <td>${sprinklerValue}</td> 
+                                    </tr>
+                                    <tr>
+                                        <td>Basement?</td>
+                                        <td>${basementValue}</td> 
+                                    </tr>
+                                    <tr>
+                                        <td>Trap Door Inside?</td>
+                                        <td>${trapDoorInsideValue}</td> 
+                                    </tr>
+                                    <tr>
+                                        <td>Cooking on Premises?</td>
+                                        <td>${cookingOnPremisesValue}</td> 
+                                    </tr>
+                                    <tr>
+                                        <td>Occupied Area (please look at your lease or give approximates):</td>
+                                        <td>${occupiedArea}</td> 
+                                    </tr>
+                                    <tr>
+                                        <td>General Liability:</td>
+                                        <td></td> 
+                                    </tr>
+                                    <tr>
+                                        <td>Per Occurrence $</td>
+                                        <td>${perOccurrence}</td> 
+                                    </tr>
+                                    <tr>
+                                        <td>General Aggregate $:</td>
+                                        <td>${generalAggregate}</td> 
+                                    </tr>
+                                    <tr>
+                                        <td>Liquor Sales $:</td>
+                                        <td>${liquorSales}</td> 
+                                    </tr>
+                                    <tr>
+                                        <td>Food Sales $:</td>
+                                        <td>${foodSales}</td> 
+                                    </tr>
+                                    <tr>
+                                        <td>Gross Sales/Rent $:</td>
+                                        <td>${grossSaleRent}</td> 
+                                    </tr>
+                                    <tr>
+                                        <td>Type of Entertainment:</td>
+                                        <td>${typeOfEntertainment}</td> 
+                                    </tr>
+                                    <tr>
+                                        <td>Size of dance floor:</td>
+                                        <td>${sizeOfDanceFloor}</td> 
+                                    </tr>
+                                    <tr>
+                                        <td>Additional Insured:</td>
+                                        <td>${additionalInsured}</td> 
+                                    </tr>
+                                    <tr>
+                                        <td>Mortgagee:</td>
+                                        <td>${mortgagee}</td> 
+                                    </tr>
+                                    <tr>
+                                        <td>Landlord:</td>
+                                        <td>${landlord}</td> 
+                                    </tr>
+                                    <tr>
+                                        <td>Loss Payee:</td>
+                                        <td>${lossPayee}</td> 
+                                    </tr>
+                                    <tr>
+                                        <td>Address:</td>
+                                        <td>${address}</td> 
+                                    </tr>
+                                    <tr>
+                                        <th>Workers Compensation & Disability:</th>
+                                        <th></th> 
+                                    </tr>
+                                    <tr>
+                                        <td>Employees:</td>
+                                        <td>${employeesValue}</td> 
+                                    </tr>
+                                    <tr>
+                                        <td>Working Period:</td>
+                                        <td>${workingPeriodValue}</td> 
+                                    </tr>
+                                    <tr>
+                                        <td>Deliveries?</td>
+                                        <td>${deliveriesValue}</td> 
+                                    </tr>
+                                    <tr>
+                                        <td>Address:</td>
+                                        <td>${address}</td> 
+                                    </tr>
+                                    <tr>
+                                        <td>Full time employee’s payroll, how much is it? $</td>
+                                        <td>${fullTimePay}</td> 
+                                    </tr>
+                                    <tr>
+                                        <td>Part time employee’s payroll, how much is it? $</td>
+                                        <td>${partTimePay}</td> 
+                                    </tr>
+                                    <tr>
+                                        <td>Does payroll include tips, how much in tips?</td>
+                                        <td>${tips}</td> 
+                                    </tr>
+                                    <tr>
+                                        <td>Gross sale of last year? $</td>
+                                        <td>${grossSale}</td> 
+                                    </tr>
+                                    <tr>
+                                        <td>Current year gross sale? $</td>
+                                        <td>${currentGrossSale}</td> 
+                                    </tr>
+                                    <tr>
+                                        <td>Accounting Firm:</td>
+                                        <td>${accountingFirm}</td> 
+                                    </tr>
+                                    <tr>
+                                        <td>Phone #:</td>
+                                        <td>${phoneNumberThree}</td> 
+                                    </tr>
+                                    <tr>
+                                        <td>Contact Name:</td>
+                                        <td>${contactName}</td> 
+                                    </tr>
+                                    <tr>
+                                        <th>Prior Carrier Information:</th>
+                                        <th></th> 
+                                    </tr>
+                                    <tr>
+                                        <td>Carrier:</td>
+                                        <td>${carrier}</td> 
+                                    </tr>
+                                    <tr>
+                                        <td>Policy #:</td>
+                                        <td>${policy}</td> 
+                                    </tr>
+                                    <tr>
+                                        <td>Policy Period #:</td>
+                                        <td>${policyPeriod}</td> 
+                                    </tr>
+                                    <tr>
+                                        <td>Carrier:</td>
+                                        <td>${carrierTwo}</td> 
+                                    </tr>
+                                    <tr>
+                                        <td>Policy #:</td>
+                                        <td>${policyTwo}</td> 
+                                    </tr>
+                                    <tr>
+                                        <td>Policy Period #:</td>
+                                        <td>${policyPeriodTwo}</td> 
+                                    </tr>
+                                    <tr>
+                                        <td>Prior losses:</td>
+                                        <td>${priorLossesValue}</td> 
+                                    </tr>
+                                    <tr>
+                                        <td>Description:</td>
+                                        <td>${description}</td> 
+                                    </tr>
+                                    <tr>
+                                        <td>Additional notes you want to tell the broker?</td>
+                                        <td>${additionalNotes}</td> 
+                                    </tr>
+                                    <tr>
+                                        <td>Upload Documents:</td>
+                                        <td>${uploadDocuments}</td> 
+                                    </tr>
+                            </table>
+                            </html>`,
+
+                            }).then(
+                                message => alert("Thank you for filling out the form, we will get back to you shortly")
+                            );
+                            $("#isSubmit").css("display", "block");
+                            $("#isLoading").css("display", "none");
+                        }
+
+
+                    }, false);
+                });
+            }, false);
+        })();
+    </script>
   </body>
 </html>
